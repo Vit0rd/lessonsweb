@@ -1,0 +1,18 @@
+{% extends 'layout_index.html' %}
+
+{% block content %}
+    {% for th in themes %}
+    <div class="block1">
+        <h2>Уроки по {{ th.name }}</h2>
+        <ul>
+        {% for l in lessons_ordered_by_theme %}
+            {% if l.theme.name == th.name %}
+                <li><a href="{% url 'Lesson' lesson_id=l.pk %}">{{ l.preview_image_url|safe }}</a></li>
+                {% cycle '' '' '' '</ul><ul>' %}
+            {% endif %}
+        {% endfor %}
+        {% resetcycle %}
+        </ul>
+    </div>
+    {% endfor %}
+{% endblock content %}

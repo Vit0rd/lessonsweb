@@ -1,0 +1,59 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="{% static 'index.css' %}">
+		<link rel="icon" href="{% static 'logo.png' %}" type="image/icon type">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<meta charset="utf-8">
+		<style>
+			@import url('https://fonts.googleapis.com/css2?family=Jost:wght@300&display=swap');
+			@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap');
+			@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+		</style>
+		<title> Уроки композиции и фотореализма | LessonsWeb</title>
+	</head>
+	<body>
+		<section class="first_image" id="button_to_top">
+			<header>
+				<a href="{% url 'index' %}" class="logotype_link">
+					<img src="{% static 'logo.png' %}">
+					<h2>LESSONS<span class="web_color">WEB</span></h2>
+				</a>
+				<div class="header_right">
+					<form action="{% url 'Search' %}" method="get" class="search_button">
+						<input type="text" name="q" placeholder="Поиск">
+						<button type="submit"><span class="fa fa-search"></span></button>
+					</form>
+					<a href="{% url 'AboutUs' %}">Про нас</a>
+					<a href="#popup">Контакты</a>
+				</div>
+			</header>
+			<nav>
+				<h1>ИСКУССТВО <br>НАЧИНАЕТСЯ С <br>КОМПОЗИЦИИ</h1>
+				<a href="#content" class="start_link">Начать</a>
+			</nav>
+			<a href="#button_to_top" class="button_to_top_link"><span class="fa fa-angle-double-up"></span></a>
+		</section>
+
+		<content id="content">
+			{% block content %}
+			{% endblock content %}
+		</content>
+
+		<footer>
+				<h6 class="copyright">
+					<a href="index.html">Lessons<span class="web_color">Web</span></a> created by Victor Khachatryan <span class="fa fa-copyright"></span> 2023
+				</h6>
+				<h6 class="contact_address">
+					Contact address <a href="https://t.me/victorkhn">t.me/victorkhn<span class="fa fa-telegram"></span></a>
+	
+					<popup id="popup">
+						<close-popup id="close_popup"> <a href="#close_popup"><span class="fa fa-times"></span></a></close-popup>
+						<p>Контактный адрес <a href="https://t.me/victorkhn">t.me/victorkhn<span class="fa fa-telegram"></span></a></p>
+					</popup>
+				</h6>
+		</footer>
+	</body>
+</html>
