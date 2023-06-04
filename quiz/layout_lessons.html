@@ -1,0 +1,89 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="{% static 'lessons.css' %}">
+		<link rel="icon" href="{% static 'logo.png' %}" type="image/icon type">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<meta charset="utf-8">
+		<style>
+			@import url('https://fonts.googleapis.com/css2?family=Jost:wght@300&display=swap');
+			@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap');
+			@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+		</style>
+		<title>{% block title %} Title | ThemeName {% endblock title %} | LessonsWeb</title>
+	</head>
+	<body>
+		<section class="first_image" id="button_to_top">
+			<header>
+				<a href="{% url 'index' %}" class="logotype_link">
+					<img src="{% static 'logo.png' %}">
+					<h2>LESSONS<span class="web_color">WEB</span></h2>
+				</a>
+				<div class="header_right">
+					<form action="{% url 'Search' %}" method="get" class="search_button">
+						<input type="text" name="q" placeholder="Поиск">
+						<button type="submit"><span class="fa fa-search"></span></button>
+					</form>
+					<a href="{% url 'AboutUs' %}">Про нас</a>
+					<a href="#popup">Контакты</a>
+				</div>
+			</header>
+			<nav>
+				<h1>{% block slogan %}УРОКИ ПО <br>{% block theme %}{% endblock theme %}{% endblock slogan %}</h1>
+				<h2>{% block lesson_title %}<span class="lesson_number">{% block lesson_serial %}{% endblock lesson_serial %}. </span>{% block lesson_name %}{% endblock lesson_name %}{% endblock lesson_title %}</h2>
+			</nav>
+			<a href="#button_to_top" class="button_to_top_link"><span class="fa fa-angle-double-up"></span></a>
+		</section>
+
+		<content id="content">
+			<nav-bar>
+			{% if prev_lesson != current_lesson %} 
+				<a href="{% url 'Lesson' lesson_id=prev_lesson.pk %}"><span class="fa fa-angle-left"></span><span class="fa fa-angle-left"></span> {% block prev_lesson_top %}{% endblock prev_lesson_top %}</span></a>
+			{% else %}
+				<!--<a href="">Назад</a>-->
+			{% endif %}
+				<a href="{% url 'index' %}"><span class="fa fa-home"></span> На главную страницу</a>
+			{% if next_lesson != current_lesson %} 
+				<a href="{% url 'Lesson' lesson_id=next_lesson.pk %}">{% block next_lesson_top %}{% endblock next_lesson_top %} <span class="fa fa-angle-right"></span><span class="fa fa-angle-right"></span></a>
+			{% else %}
+				<!--<a href="">Вперед</a>-->
+			{% endif %}
+			</nav-bar>
+			<div class="border_between_nav-bar_p"></div>
+			
+			{% block content %}
+			{% endblock content %}
+			
+			<div class="border_between_nav-bar_p"></div>
+			<nav-bar>
+				{% if prev_lesson != current_lesson %} 
+				<a href="{% url 'Lesson' lesson_id=prev_lesson.pk %}"><span class="fa fa-angle-left"></span><span class="fa fa-angle-left"></span> {% block prev_lesson_bottom %}{% endblock prev_lesson_bottom %}</span></a>
+				{% else %}
+				<!--<a href="">Назад</a>-->
+				{% endif %}
+				<a href="{% url 'index' %}"><span class="fa fa-home"></span> На главную страницу</a>
+				{% if next_lesson != current_lesson %} 
+				<a href="{% url 'Lesson' lesson_id=next_lesson.pk %}">{% block next_lesson_bottom %}{% endblock next_lesson_bottom %} <span class="fa fa-angle-right"></span><span class="fa fa-angle-right"></span></a>
+				{% else %}
+				<!--<a href="">Вперед</a>-->
+				{% endif %}
+			</nav-bar>
+		</content>
+
+		<footer>
+			<h6 class="copyright">
+				<a href="../index.html">Lessons<span class="web_color">Web</span></a> created by Victor Khachatryan <span class="fa fa-copyright"></span> 2023
+			</h6>
+			<h6 class="contact_address">
+				Contact address <a href="https://t.me/victorkhn">t.me/victorkhn<span class="fa fa-telegram"></span></a>
+
+				<popup id="popup">
+					<close-popup id="close_popup"> <a href="#close_popup"><span class="fa fa-times"></span></a></close-popup>
+					<p>Контактный адрес <a href="https://t.me/victorkhn">t.me/victorkhn<span class="fa fa-telegram"></span></a></p>
+				</popup>
+			</h6>
+		</footer>
+	</body>
+</html>
