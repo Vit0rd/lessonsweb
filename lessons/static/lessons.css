@@ -1,0 +1,617 @@
+html {
+	scroll-behavior: smooth;
+  }
+
+body
+{
+	margin: 0;
+	background-color: #262626;
+}
+
+/*--дефолтные настройки ссылок--*/
+a {
+	color: white;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+/*--ширина скроллбара--*/
+::-webkit-scrollbar {
+	width: 14px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+	background: #202020; 
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+	background: #363636; 
+	border-radius: 3px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+	background: #464646; 
+  }
+
+
+/*-------------------------------------------------*/
+
+
+/*--первое изображение--*/
+section {
+	background-image: url("00013.png");
+	background-repeat: no-repeat; /*без повторений*/
+	background-position: center center; /*чтобы была видна центральная часть*/
+	background-size: cover; /*режим наложения, не трожь*/
+	background-attachment: fixed; /*чтобы при скролле вниз картинка была фиксированной*/
+	height: 550px;
+}
+
+/*--стиль хедера--*/
+section header
+{
+	height: 100px;
+	background-color: rgba(126, 126, 126, 0.2);
+	display: flex;
+	justify-content: space-between;
+}
+
+/*--стиль ссылки в логотипе на главную страницу в хедере--*/
+section header .logotype_link {
+	text-decoration: none;
+	width: 300px;
+	display: flex;
+	font-family: 'Ubuntu', sans-serif;
+	font-size: 24px;
+	transition-duration: .15s;
+}
+
+/*--стиль ссылки в логотипе на главную страницу в хедере при наведении--*/
+section header .logotype_link:hover {
+	filter: drop-shadow(2px 2px 4px rgb(32, 32, 32));
+}
+
+/*--размеры изображения в логотипе--*/
+section header .logotype_link img {
+	width: 80px;
+	margin: 10px 5px 10px 30px;
+}
+
+/*--цвет WEB в названии ссылки в хедере--*/
+.web_color {
+	color: #fd5e53;
+}
+
+/*--стиль правой части в хедере --*/
+section header .header_right {
+	display: flex;
+	justify-content: space-between;
+	width: 35%;
+	padding: 0 60px;
+}
+
+@media (max-width: 1645px){
+	section header .header_right {
+		width: 40%;
+	}
+}
+
+@media (max-width: 1450px){
+	section header .header_right {
+		width: 45%;
+	}
+}
+
+@media (max-width: 1000px){
+	section header .header_right {
+		width: 60%;
+	}
+}
+
+/*--стиль кнопок в правой части хедера--*/
+section header .header_right a {
+	font-family: 'Ubuntu', sans-serif;
+	font-size: 26px;
+	padding: 36px 20px;
+	transition: .18s;
+}
+
+/*--стиль кнопок в правой части хедера при наведении--*/
+section header .header_right a:hover {
+	background-color: #fd5e53;
+}
+
+
+/*-------------------------------------------------*/
+
+
+/*--стиль слогана--*/
+section nav h1{
+	margin: 8% 0 2% 8%;
+	font-family: 'Ubuntu', sans-serif;
+	font-size: 76px;
+	color: #ececec;
+	line-height: 80px;
+}
+
+/*--стиль названия урока--*/
+section nav h2{
+	margin: 0 0 2% 16%;
+	padding-top: 1%;
+	font-family: 'Jost', sans-serif;
+	font-size: 66px;
+	color: #ececec;
+	line-height: 80px;
+}
+
+/*--стиль цифры в номере урока--*/
+section nav .lesson_number {
+	font-family: 'Montserrat', sans-serif;
+}
+
+/*--стиль кнопки для поднятия наверх--*/
+.button_to_top_link {
+	position: fixed;
+	border-radius: 50%;
+	padding: 10px 22px;
+	margin: 10px;
+	right: 2%;
+	bottom: 2%;
+	background-color: #181818;
+	color: #fd5e53;
+	font-size: 44px;
+	z-index: 10000;
+	transition-duration: .15s;
+}
+
+/*--стиль кнопки для поднятия наверх при наведении--*/
+.button_to_top_link:hover {
+	background-color: #101010;
+}
+
+
+/*-------------------------------------------------*/
+
+
+/*--настройки в целом контента--*/
+content {
+	background-color: #262626;
+}
+
+/*--навигационные кнопки--*/
+content nav-bar {
+	padding: 10px 7% 2px;
+	display: flex;
+	justify-content: space-evenly;
+	font-family: 'Jost', sans-serif;
+	font-size: 20px;
+	text-align: center;
+}
+
+/*--навигационные кнопки ссылки--*/
+content nav-bar a {
+	padding: 8px 6%;
+	color: rgb(240, 240, 240);
+	text-decoration: underline;
+}
+
+/*--навигационные кнопки ссылки при наведении--*/
+content nav-bar a:hover {
+	color: #262626;
+	background-color: rgb(240, 240, 240);
+	transition-duration: .15s;
+	text-decoration: none;
+}
+
+/*--линия между основным текстом и навигационными кнопками--*/
+.border_between_nav-bar_p {
+	height: 2px;
+	background-image: linear-gradient(to right, rgba(255, 255, 255, 0) 5%, rgba(32, 32, 32, 1), rgba(255, 255, 255, 0) 95%);
+}
+
+/*--основной текст, параграф--*/
+content p {
+	font-size: 25px;
+	font-family: 'Jost', sans-serif;
+	color: rgb(240, 240, 240);
+	text-align: justify;
+	text-indent: 25px;
+	padding: 0 13%;
+}
+
+/*--первый параграф основного текста--*/
+content p:first-child {
+	padding: 0 auto 0 auto;
+	margin: 60px 0 0 0;
+}
+
+/*--последний параграф основного текста--*/
+content p:last-child {
+	padding: 0 auto 0 auto;
+	/* margin: 0 0 60px 0; */
+}
+
+/*--картинки в параграфе--*/
+content p img {
+	width: 64%;
+	padding: 30px 18% 0;
+}
+
+/*--список примеров из текста--*/
+content ul {
+	font-size: 25px;
+	font-family: 'Jost', sans-serif;
+	font-style: italic;
+	color: rgb(255, 255, 255);
+	padding: 0 13% 0 19%;
+	list-style-type: decimal;
+	background-color: #202020;
+}
+
+/*--разделение параграфа между длинной картинкой и параграфом--*/
+content long-image-near-text {
+	display: flex;
+	margin: 0;
+	padding: 0;
+}
+
+/*--стиль блока с картинками--*/
+content long-image-near-text container-images-block {
+	display: block;
+	padding: 0;
+	margin: 30px 0 0 17%;
+}
+
+/*--стиль самих длинных картинок в тэге-разделителе--*/
+content long-image-near-text container-images-block img {
+	padding: 0;
+	margin: 0;
+	width: 250px;
+	cursor: pointer;
+}
+
+/*--стиль параграфа в разделителе-тэге--*/
+content long-image-near-text p {
+	padding: 30px 17% 0 50px;
+	margin: 0px;
+}
+
+/*--контейнер с двумя широкими картинками--*/
+content p container-images {
+	display: flex;
+	justify-content: center;
+}
+
+/*--стиль самих картинок в этом контейнере--*/
+content p container-images img {
+	padding: 0;
+	width: 49%;
+	margin: 10px 0 0 0;
+}
+
+/*--стиль даты публикации--*/
+.publish_date {
+	font-size: 13px;
+	font-family: 'Jost', sans-serif;
+	color: rgb(240, 240, 240);
+	text-align: right;
+	text-indent: 0px;
+	padding: 30px 13% 0;
+}
+
+
+/*-------------------------------------------------*/
+
+
+/*--футер--*/
+footer {
+	height: 180px;
+	background-color: #202020;
+	color: rgb(240, 240, 240);
+	text-align: center;
+	font-size: 24px;
+	font-family: 'Jost', sans-serif;
+}
+
+/*--футер дефолтные настройки заголовка--*/
+footer h6 {
+	padding: 0;
+	margin: 0;
+	cursor: default;
+}
+
+/*--футер текст с надписью о том кто создатель--*/
+footer .copyright {
+	padding: 60px 0 10px 0;
+}
+
+/*--футер текст с надписью о том кто создатель при наведении--*/
+footer .copyright a:hover {
+	text-decoration: underline;
+}
+
+/*--стиль ссылки на меня--*/
+footer .contact_address a {
+	color: #2AABEE;
+}
+
+/*--стиль ссылки на меня при наведении--*/
+footer .contact_address a:hover {
+	color: #229ED9;
+	text-decoration: underline;
+}
+
+/*--стиль иконки телеграма--*/
+footer h6 a .fa-telegram {
+	margin-left: 5px;
+}
+
+
+/*-------------------------------------------------*/
+
+
+/*--всплывающее окно--*/
+#popup {
+	display: none;
+	width: 30%;
+	height: 260px;
+	background-color: rgba(32, 32, 32, .95);
+	border-radius: 6px;
+	font-size: 24px;
+}
+
+/*--всплывающее окно при нажатии--*/
+#popup:target {
+	display: block;
+	position: fixed;
+	left: 35%;
+	top: 30%;
+}
+
+/*--кнопка для закрытия всплывающего окна--*/
+#close_popup {
+	display: block;
+}
+
+/*--кнопка для закрытия всплывающего окна при нажатии--*/
+#close_popup:target {
+	display: none;
+}
+
+/*--стиль текста всплывающего окна--*/
+#popup p {
+	padding: 50px 0 0 0;
+}
+
+/*--стиль кнопки закрытия всплывающего окна--*/
+#close_popup a {
+	font-family: 'Montserrat', sans-serif;
+	font-size: 30px;
+	color: white;
+	margin-left: 94%;
+	text-decoration: none;
+	transition-duration: .2s;
+}
+
+/*--стиль кнопки закрытия всплывающего окна при наведении--*/
+#close_popup a:hover {
+	color: #fd5e53;
+}
+
+
+/*-------------------------------------------------*/
+
+
+/*--дизайн кнопки поиска--*/
+/*--дизайн формы--*/
+.search_button {
+	padding-top: 40px;
+}
+
+/*--дизайн поля ввода--*/
+.search_button input {
+	background-color: transparent;
+	border: none;
+	border-bottom: 2px solid #fd5e53;
+	font-size: 20px;
+	color: white;
+	width: 80%;
+}
+
+/*--дизайн плейсхолдера--*/
+.search_button ::placeholder {
+	opacity: 0.6;
+	color: rgb(240, 240, 240);
+	font-family: 'Jost', sans-serif;
+	font-weight: bold;
+	font-size: 20px;
+
+}
+
+/*--дизайн кнопки поиска--*/
+.search_button button {
+	background-color: transparent;
+	border: none;
+	font-size: 20px;
+	color: rgb(240, 240, 240);
+	transition-duration: .15s;
+}
+
+/*--дизайн кнопки поиска при наведении--*/
+.search_button button:hover {
+	filter: brightness(.75);
+	cursor: pointer;
+}
+
+
+/*-------------------------------------------------*/
+
+/*--стиль теста--*/
+/*--стиль дива в котором находится кнопка теста--*/
+.quiz_button_div {
+	display: flex;
+	justify-content: center;
+}
+
+/*--стиль кнопки "пройти тест"--*/
+.quiz_button, .quiz_submit_button {
+	background-color: #fd5e53;
+	border: 0px;
+	border-radius: 5px;
+	padding: 20px 150px;
+	margin: 0 auto;
+	font-family: 'Ubuntu', sans-serif;
+	font-size: 24px;
+	text-align: center;
+	color: white;
+	cursor: pointer;
+	transition-duration: .35s;
+}
+
+.quiz_submit_button {
+	width: 100%;
+}
+
+/*--стиль кнопки "пройти тест" при наведении--*/
+.quiz_button:hover, .quiz_submit_button:hover {
+	filter: brightness(70%);
+}
+
+/*--стиль кнопки таймера--*/
+#displaytimer {
+	font-family: 'Jost', sans-serif;
+	font-size: 24px;
+	color: rgb(240, 240, 240);
+	padding: 20px 0 0 0;
+}
+
+/*--стиль формы в которой содержатся вопросы--*/
+.quiz_questions {
+	font-family: 'Jost', sans-serif;
+	color: rgb(240, 240, 240);
+	margin: 0 33%;
+}
+
+.quiz_questions h3 {
+	font-size: 34px;
+	width: 640px;
+	text-align: center;
+	margin: 30px 0 10px 0;
+}
+
+.quiz_questions input[type="radio"] {
+	transform: scale(2);
+	accent-color: #fd5e53;
+	transition: .15s;
+}
+
+.quiz_questions input[type="radio"]:hover {
+	filter: brightness(.9);
+}
+
+.result {
+	width: 100%;
+	text-align: justify;
+}
+
+statistic-result {
+	font-family: 'Jost', sans-serif;
+	font-size: 34px;
+	color: rgb(240, 240, 240);
+	margin: 0 41%;
+}
+
+@media (max-width: 1760px){
+	statistic-result {
+		margin: 0 38%;
+	}
+}
+
+@media (max-width: 1400px){
+	statistic-result {
+		margin: 0 36%;
+	}
+}
+
+@media (max-width: 1150px){
+	statistic-result {
+		margin: 0 33%;
+	}
+}
+
+.quiz_questions label, result-output {
+	font-size: 24px;
+	text-align: left;
+	padding: 0 0 0 10px;
+}
+
+result-output {
+	color: rgb(240, 240, 240);
+	margin: 2px;
+	background-color: #4CA142;
+	border-radius: 4px;
+	padding: 4px 10px;
+	margin: 0;
+}
+
+
+/*-------------------------------------------------*/
+
+
+/*--Дизайн вывода поиска--*/
+/*--дизайн ящика с результатом--*/
+.search_result_box {
+	width: 75%;
+	border: 2px solid transparent;
+	background-color: #202020;
+	margin: 20px auto;
+	padding: 0 0 10px;
+	border-radius: 8px;
+	transition-duration: .15s;
+}
+
+/*--дизайн ящика с результатом при наведении--*/
+.search_result_box:hover {
+	border-bottom: 2px solid #fd5e53;
+	box-shadow: 0px 0px 3px #151515;
+}
+
+/*--стиль названия урока--*/
+.l_name {
+	font-family: 'Ubuntu', sans-serif;
+	font-size: 30px;
+	color: #ececec;
+	margin: 10px 0;
+	padding: 10px 5% 0 2%;
+	display: inline-block;
+}
+
+/*--стиль текста урока--*/
+.l_text {
+	font-size: 24px;
+	font-family: 'Jost', sans-serif;
+	color: rgb(240, 240, 240);
+	text-align: justify;
+	text-indent: 30px;
+	padding: 0 5% 16px 2%;
+	margin: 0;
+}
+
+@media (max-width: 1750px){
+	.l_text {
+		font-size: 22px;
+	}
+}
+
+@media (max-width: 1350px){
+	.l_text {
+		font-size: 19px;
+	}
+}
+
+.l_link {
+	cursor: default;
+}

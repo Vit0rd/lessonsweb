@@ -1,0 +1,43 @@
+{% extends 'layout_lessons.html' %}
+{% load static %}
+
+{% block title %} {{ current_lesson }} | {{ current_theme }} {% endblock title %}
+
+{% block slogan %} {{ block.super }} {% endblock slogan %}
+{% block theme %} {{ current_theme|upper }} {% endblock theme %}
+
+{% block lesson_title %} {{ block.super }} {% endblock lesson_title %}
+
+{% block lesson_serial %}{{current_lesson.serial}}{% endblock lesson_serial %}
+
+{% block lesson_name %} {{ current_lesson.name|capfirst }} {% endblock lesson_name %}
+
+{% block prev_lesson_top %} {{ prev_lesson.name|capfirst }} {% endblock prev_lesson_top %}
+{% block next_lesson_top %} {{ next_lesson.name|capfirst }} {% endblock next_lesson_top %}
+
+{% block content %}
+{{ current_lesson.text|safe }}
+
+{% for q in quiz_themes %}
+    {% if current_theme.name == q.name %}
+        {% if next_lesson.theme != current_theme %}
+        <br><br>
+        <p>По окончанию урока можно пройти тест и подкрепить свои знания по кнопке ниже.</p>
+        <div class="quiz_button_div">
+            <a href="{% url 'Quiz' quiz_id=q.pk %}" class="quiz_button" target="_blank">Пройти тест</a>
+        </div>
+        {% elif next_lesson == current_lesson %}
+        <br>
+        <p>По окончанию урока можно пройти тест и подкрепить свои знания по кнопке ниже.</p>
+        <div class="quiz_button_div">
+            <a href="{% url 'Quiz' quiz_id=q.pk %}" class="quiz_button" target="_blank">Пройти тест</a>
+        </div>
+        {% endif %}
+    {% endif %}
+{% endfor %}
+
+<p class="publish_date">Опубликовано {{current_lesson.publish|date:'d E Y H:i'}}</p>
+{% endblock content %}
+
+{% block prev_lesson_bottom %} {{ prev_lesson.name|capfirst }} {% endblock prev_lesson_bottom %}
+{% block next_lesson_bottom %} {{ next_lesson.name|capfirst }} {% endblock next_lesson_bottom %}
