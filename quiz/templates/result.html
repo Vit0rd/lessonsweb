@@ -1,0 +1,45 @@
+{% extends '..\templates\layout_lessons.html' %}
+
+{% block title %}РЕЗУЛЬТАТ {{ current_quiz_theme }}{% endblock title %} <!-- title means title in the browser tab -->
+
+{% block slogan %}ТЕСТ ПО {{ current_quiz_theme|upper }}{% endblock slogan %} <!-- Slogan means that title text announicing lesson/test name -->
+
+{% block lesson_title %}{% endblock lesson_title %} <!-- Leaving empty for erasing that dot -->
+
+{% block content %} <!-- Content block -->
+<div class="result">
+    <statistic-result>Процент: {{ percent }}%</statistic-result>
+    <statistic-result>Время: {{ time }} сек</statistic-result>
+    <statistic-result>Верных ответов: {{ correct }}</statistic-result>
+    <statistic-result>Неверных ответов: {{ wrong }}</statistic-result>
+</div>
+
+<div class="quiz_questions">
+    {% for q in questions %}
+        {% if q.theme.name == current_quiz_theme %}
+        <h3>{{ q.question }}</h3>
+        <input type="radio" name="{{ q.question }}" value="var1" id="{{ q.question }}" disabled>
+        <label for="{{ q.question }}">{{ q.var1|capfirst }}</label><br>
+        <input type="radio" name="{{ q.question }}" value="var2" id="{{ q.question }}" disabled>
+        <label for="{{ q.question }}">{{ q.var2|capfirst }}</label><br>
+        <input type="radio" name="{{ q.question }}" value="var3" id="{{ q.question }}" disabled>
+        <label for="{{ q.question }}">{{ q.var3|capfirst }}</label><br>
+        <input type="radio" name="{{ q.question }}" value="var4" id="{{ q.question }}" disabled>
+        <label for="{{ q.question }}">{{ q.var4|capfirst }}</label><br><br>
+        {% if q.answer == 'var1' %}
+            <result-output>Ответ: {{ q.var1|capfirst }}</result-output>
+        {% elif q.answer == 'var2' %}
+            <result-output>Ответ: {{ q.var2|capfirst }}</result-output>
+        {% elif q.answer == 'var3' %}
+            <result-output>Ответ: {{ q.var3|capfirst }}</result-output>
+        {% elif q.answer == 'var4' %}
+            <result-output>Ответ: {{ q.var4|capfirst }}</result-output>
+        {% else %}
+            <result-output>Что-то пошло не так в выводе ответа :/</result-output>
+        {% endif %}
+        {% endif %}
+    {% endfor %}
+</div> 
+<br>
+
+{% endblock content %}
